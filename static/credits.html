@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top-Up Credits</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+<header class="bg-gray-800 p-4">
+        <ul class="flex justify-center space-x-6">
+            <li><a href="/home" class="text-white hover:text-blue-500">Dashboard</a></li>
+            <li><a href="/topup" class="text-white hover:text-blue-500">Credits</a></li>
+            <li><a href="/discord" class="text-white hover:text-blue-500">Panel</a></li>
+            <li><a href="https://discord.gg/med2uFQyvN" class="text-white hover:text-blue-500">Discord</a></li>
+        </ul>
+    </header>
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md w-96">
+            <h1 class="text-2xl font-semibold mb-4">Top-Up Credits</h1>
+            <div class="mb-4">
+                <label for="coupon-code" class="block">Coupon Code:</label>
+                <input type="text" id="coupon-code" class="w-full bg-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:bg-blue-500 focus:border-blue-500" placeholder="Enter Coupon Code">
+            </div>
+            <div class="text-center">
+                <button id="submit-button" class="bg-blue-500 hover:bg-blue-600 rounded-lg px-4 py-2 transition duration-300 ease-in-out">Submit</button>
+            </div>
+            <div id="message" class="text-center mt-2 text-red-500"></div>
+        </div>
+    </div>
+
+    <script>
+        function getCookie(name) {
+            const cookieValue = document.cookie
+                .split('; ')
+                .find(row => row.startsWith(name + '='));
+
+            if (cookieValue) {
+                return cookieValue.split('=')[1];
+            } else {
+                window.location.href = '/login';
+            }
+        }
+        const t = getCookie('token');
+        async function topUpCredits() {
+            const couponCode = document.getElementById('coupon-code').value;
+            const token = getCookie('token');
+            const messageElement = document.getElementById('message'); // Message container
+
+            if (!couponCode || !token) {
+                // Handle invalid input or missing token
+                messageElement.textContent = 'Invalid input or missing token.';
+                return;
+            }
+
+            try {
+                // Send a POST request to your /api/topup endpoint with query parameters
+                const response = await fetch(`/api/topup?code=${couponCode}&token=${token}`, {
+                    method: 'GET',
+                });
+
+                if (response.ok) {
+                    const responseData = await response.json();
+                    if (!responseData.error) {
+                        // Show a success message on the page
+                        messageElement.textContent = responseData.message;
+                        messageElement.classList.remove('text-red-500');
+                        messageElement.classList.add('text-green-500');
+                    } else {
+                        // Show an error message on the page
+                        messageElement.textContent = responseData.message;
+                        messageElement.classList.remove('text-green-500');
+                        messageElement.classList.add('text-red-500');
+                    }
+                } else {
+                    messageElement.textContent = 'Failed to top-up credits. Please try again.';
+                    messageElement.classList.remove('text-green-500');
+                    messageElement.classList.add('text-red-500');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageElement.textContent = 'An error occurred while processing your request. Please try again later.';
+                messageElement.classList.remove('text-green-500');
+                messageElement.classList.add('text-red-500');
+            }
+        }
+
+        const submitButton = document.getElementById('submit-button');
+        submitButton.addEventListener('click', topUpCredits);
+
+        function getCookie(name) {
+            const cookieValue = document.cookie
+                .split('; ')
+                .find(row => row.startsWith(name + '='));
+
+            if (cookieValue) {
+                return cookieValue.split('=')[1];
+            } else {
+                window.location.href = '/login';
+            }
+        }
+    </script>
+</body>
+</html>

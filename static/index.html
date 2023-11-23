@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Message Sender</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+<header class="bg-gray-800 p-4">
+        <ul class="flex justify-center space-x-6">
+            <li><a href="/home" class="text-white hover:text-blue-500">Dashboard</a></li>
+            <li><a href="/topup" class="text-white hover:text-blue-500">Credits</a></li>
+            <li><a href="/discord" class="text-white hover:text-blue-500">Panel</a></li>
+            <li><a href="https://discord.gg/med2uFQyvN" class="text-white hover:text-blue-500">Discord</a></li>
+        </ul>
+    </header>
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md w-96">
+            <h1 class="text-2xl font-semibold mb-4">Discord DM Spammer</h1>
+            <form id="spam-form">
+                <div class="space-y-4">
+                    <div>
+                        <label for="user-id" class="block">User ID:</label>
+                        <input type="text" id="user-id" class="w-full bg-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:bg-blue-500 focus:border-blue-500" placeholder="Enter User ID">
+                    </div>
+                    <div>
+                        <label for="num-tokens" class="block">Number of Tokens:</label>
+                        <input type="number" id="num-tokens" class="w-full bg-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:bg-blue-500 focus:border-blue-500" placeholder="Enter Number of Tokens">
+                    </div>
+                    <div>
+                        <label for="dms-per-token" class="block">DMs per Token:</label>
+                        <input type="number" id="dms-per-token" class="w-full bg-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:bg-blue-500 focus:border-blue-500" placeholder="Enter DMs per Token">
+                    </div>
+                    <div>
+                        <label for="message" class="block">Message:</label>
+                        <textarea id="message" class="w-full bg-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:bg-blue-500 focus:border-blue-500" rows="4" placeholder="Enter Your Message"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 rounded-lg px-4 py-2 transition duration-300 ease-in-out">Send Message</button>
+                    </div>
+                    <div id="response-message" class="mt-4 text-center text-green-500"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    function getCookie(name) {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith(name + '='));
+
+        if (cookieValue) {
+            return cookieValue.split('=')[1];
+        } else {
+            window.location.href = '/login';
+        }
+    }
+
+    function checkBalance(token, action) {
+        return fetch(`https://discord.inverse.cx/api/balance?token=${token}&action=${action}`, {
+            method: "GET",
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.error) {
+                return data.credits;
+            } else {
+                throw new Error(data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Balance Check Error:", error);
+            throw error;
+        });
+    }
+
+    const t = getCookie('token');
+    document.addEventListener("DOMContentLoaded", function () {
+        const spamForm = document.getElementById("spam-form");
+        const responseMessage = document.getElementById("response-message");
+
+        spamForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            try {
+                // Check balance before sending spam
+                const initialBalance = await checkBalance(t, "0");
+                const userId = document.getElementById("user-id").value;
+                const numTokens = document.getElementById("num-tokens").value;
+                const dmsPerToken = document.getElementById("dms-per-token").value + 1;
+                const message = document.getElementById("message").value;
+
+                if (initialBalance >= numTokens) {
+                    await fetch(`https://go.inverse.cx/api/spam?userid=${userId}&limit=${dmsPerToken}&message=${message}`, {
+                        method: "GET",
+                    });
+                    const updatedBalance = await checkBalance(t, "1");
+                    responseMessage.textContent = `Success: Sent DM Spam. Remaining credits: ${updatedBalance}`;
+                } else {
+                    responseMessage.textContent = "Error: Insufficient credits to send DM spam.";
+                }
+            } catch (error) {
+                responseMessage.textContent = `Error: ${error.message}`;
+                const updatedBalance = await checkBalance(t, "1");
+                responseMessage.textContent = `Success: Sent DM Spam. Remaining credits: ${updatedBalance}`;
+            }
+        });
+    });
+    </script>
+</body>
+</html>

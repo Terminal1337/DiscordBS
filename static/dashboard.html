@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+<header class="bg-gray-800 p-4">
+        <ul class="flex justify-center space-x-6">
+            <li><a href="/home" class="text-white hover:text-blue-500">Dashboard</a></li>
+            <li><a href="/topup" class="text-white hover:text-blue-500">Credits</a></li>
+            <li><a href="/discord" class="text-white hover:text-blue-500">Panel</a></li>
+            <li><a href="https://discord.gg/med2uFQyvN" class="text-white hover:text-blue-500">Discord</a></li>
+        </ul>
+    </header>
+    <div class="min-h-screen flex flex-col items-center justify-center">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md w-96">
+            <h1 class="text-2xl font-semibold mb-4">Dashboard</h1>
+            <div class="mb-4">
+                <label for="username" class="block">Username:</label>
+                <span id="username" class="bg-gray-700 text-white rounded-lg px-4 py-2 block"></span>
+            </div>
+            <div class="mb-4">
+                <label for="hashed-password" class="block">Hashed Password:</label>
+                <span id="hashed-password" class="bg-gray-700 text-white rounded-lg px-4 py-2 block"></span>
+            </div>
+            <div class="mb-4">
+                <label for="registration-date" class="block">Registration Date:</label>
+                <span id="registration-date" class="bg-gray-700 text-white rounded-lg px-4 py-2 block"></span>
+            </div>
+            <div class="mb-4">
+                <label for="available-credits" class="block">Available Credits:</label>
+                <span id="available-credits" class="bg-gray-700 text-white rounded-lg px-4 py-2 block"></span>
+            </div>
+            <div class="mb-4">
+                <button id="open-panel-button" class="bg-blue-500 hover:bg-blue-600 rounded-lg px-4 py-2 transition duration-300 ease-in-out">Open Panel</button>
+            </div>
+            <div>
+                <button id="top-up-credits-button" class="bg-green-500 hover:bg-green-600 rounded-lg px-4 py-2 transition duration-300 ease-in-out">Top-Up Credits</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getCookie(name) {
+            const cookieValue = document.cookie
+                .split('; ')
+                .find(row => row.startsWith(name + '='));
+
+            if (cookieValue) {
+                return cookieValue.split('=')[1];
+            } else {
+                window.location.href = '/login';
+            }
+        }
+
+        async function fetchAndDisplayUserData() {
+            const token = getCookie('token');
+
+            try {
+                if (!token) {
+                    return; // Exit early if token cookie is not found
+                }
+
+                const response = await fetch('/api/dashboard?token=' + token);
+
+                if (response.ok) {
+                    const responseData = await response.json();
+                    if (!responseData.error) {
+                        document.getElementById('username').textContent = responseData.data.username;
+                        document.getElementById('hashed-password').textContent = responseData.data.password;
+                        document.getElementById('registration-date').textContent = responseData.data.registered;
+                        document.getElementById('available-credits').textContent = responseData.data.credits;
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        window.addEventListener('load', fetchAndDisplayUserData);
+
+        const openPanelButton = document.getElementById('open-panel-button');
+        openPanelButton.addEventListener('click', function() {
+            window.location.href = '/discord'; 
+        });
+
+        const topUpCreditsButton = document.getElementById('top-up-credits-button');
+        topUpCreditsButton.addEventListener('click', function() {
+            window.location.href = '/topup'; 
+        });
+    </script>
+</body>
+</html>

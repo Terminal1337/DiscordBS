@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+<header class="bg-gray-800 p-4">
+        <ul class="flex justify-center space-x-6">
+            <li><a href="/home" class="text-white hover:text-blue-500">Dashboard</a></li>
+            <li><a href="/topup" class="text-white hover:text-blue-500">Credits</a></li>
+            <li><a href="/discord" class="text-white hover:text-blue-500">Panel</a></li>
+            <li><a href="https://discord.gg/med2uFQyvN" class="text-white hover:text-blue-500">Discord</a></li>
+            <li><a href="/login" class="text-white hover:text-blue-500">Login</a></li>
+        </ul>
+    </header>
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md w-96">
+            <h1 class="text-2xl font-semibold mb-4">Registration</h1>
+            <div class="space-y-4">
+                <div>
+                    <label for="user-id" class="block">User ID:</label>
+                    <input type="text" id="user-id" class="w-full bg-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:bg-blue-500 focus:border-blue-500" placeholder="Enter User ID">
+                </div>
+                <div>
+                    <label for="password" class="block">Password:</label>
+                    <input type="password" id="password" class="w-full bg-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:bg-blue-500 focus:border-blue-500" placeholder="Enter Password">
+                </div>
+                <div>
+                    <label for="confirm-password" class="block">Confirm Password:</label>
+                    <input type="password" id="confirm-password" class="w-full bg-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:bg-blue-500 focus:border-blue-500" placeholder="Confirm Password">
+                </div>
+                <div class="text-center">
+                    <button id="register-button" class="bg-blue-500 hover:bg-blue-600 rounded-lg px-4 py-2 transition duration-300 ease-in-out">Register</button>
+                </div>
+                <div id="message" class="text-center text-red-500 mt-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const registerButton = document.getElementById('register-button');
+        const messageElement = document.getElementById('message');
+
+        registerButton.addEventListener('click', async () => {
+            const username = document.getElementById('user-id').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                messageElement.textContent = 'Passwords do not match';
+                messageElement.classList.remove('text-green-500');
+                messageElement.classList.add('text-red-500');
+                return;
+            }
+
+            const url = `/api/register?username=${username}&password=${password}`;
+
+            try {
+                const response = await fetch(url);
+
+                if (response.ok) {
+                    const responseData = await response.json();
+                    if (!responseData.error) {
+                        messageElement.textContent = responseData.message;
+                        messageElement.classList.remove('text-red-500');
+                        messageElement.classList.add('text-green-500');
+                        
+                        setTimeout(function() {
+                            window.location.href = '/login';}, 3000); 
+
+                    } else {
+                        messageElement.textContent = responseData.message;
+                        messageElement.classList.remove('text-green-500');
+                        messageElement.classList.add('text-red-500');
+                    }
+                } else {
+                    messageElement.textContent = 'Failed to register. Please try again.';
+                    messageElement.classList.remove('text-green-500');
+                    messageElement.classList.add('text-red-500');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageElement.textContent = 'An error occurred while registering. Please try again later.';
+                messageElement.classList.remove('text-green-500');
+                messageElement.classList.add('text-red-500');
+            }
+            window.location.href = '/login'
+        });
+    </script>
+</body>
+</html>
